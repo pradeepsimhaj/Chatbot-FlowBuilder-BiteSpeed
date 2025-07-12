@@ -131,7 +131,7 @@ const SettingsPane = () => {
                 Node ID
               </label>
               <div className="px-3 py-2 bg-gray-100 border border-gray-300 rounded-md text-sm text-gray-600">
-                {selectedNode.id}
+                {selectedNode.type}
               </div>
             </div>
 
@@ -200,8 +200,8 @@ const SettingsPane = () => {
                       );
                     })
                   ) : (
-                    <div className="px-3 py-2 bg-gray-100 border border-gray-300 rounded-md text-sm text-gray-500 italic">
-                      No connected nodes
+                    <div>
+                      
                     </div>
                   )}
                 </div>
@@ -212,10 +212,7 @@ const SettingsPane = () => {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col gap-4 p-2 justify-center items-center h-full border-2 border-dashed border-stone-600 rounded-md overflow-hidden">
-          <div className="text-m text-stone-400">
-            Select a node to Edit its Details
-          </div>
+        <div>
         </div>
       )}
     </div>
