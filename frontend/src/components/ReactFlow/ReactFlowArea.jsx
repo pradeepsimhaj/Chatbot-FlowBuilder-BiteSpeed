@@ -28,7 +28,7 @@ const defaultEdgeOptions = {
   },
 };
 
-const BackgroundType = {
+export const BackgroundType = {
   dots: "Dots",
   lines: "Lines",
   cross: "Cross",
@@ -91,8 +91,8 @@ const ReactFlowArea = () => {
         type,
         position,
         data: {
-          label: `${type} ${nodes.length + 1}`,
-          message: `This is a new ${type} \n [Right/Double Click to Edit]`,
+          label: `${type} Node`,
+          message: "New message",
         },
         isConnectable: true,
         isDraggable: true,
@@ -178,25 +178,25 @@ const ReactFlowArea = () => {
     [deleteNode]
   );
 
-  const BackgroundButtons = () => {
-    return (
-      <div className="flex gap-2">
-        {Object.entries(BackgroundType).map(([type, value]) => (
-          <button
-            key={type}
-            onClick={() =>
-              setSettings((prev) => ({ ...prev, backgroundType: type }))
-            }
-            className={`flex justify-center items-center ${
-              settings.backgroundType === type ? "bg-[#324B5A]" : "bg-[#1B3C53]"
-            } text-white rounded-md p-2`}
-          >
-            {value}
-          </button>
-        ))}
-      </div>
-    );
-  };
+  // const BackgroundButtons = () => {
+  //   return (
+  //     <div className="flex gap-2">
+  //       {Object.entries(BackgroundType).map(([type, value]) => (
+  //         <button
+  //           key={type}
+  //           onClick={() =>
+  //             setSettings((prev) => ({ ...prev, backgroundType: type }))
+  //           }
+  //           className={`flex justify-center items-center ${
+  //             settings.backgroundType === type ? "bg-[#324B5A]" : "bg-[#1B3C53]"
+  //           } text-white rounded-md p-2`}
+  //         >
+  //           {value}
+  //         </button>
+  //       ))}
+  //     </div>
+  //   );
+  // };
 
   // Add event listeners for node movement tracking
   useEffect(() => {
@@ -244,7 +244,7 @@ const ReactFlowArea = () => {
         onPaneClick={handlePaneClick}
       >
         <Panel position="top-left">
-          <BackgroundButtons />
+          {/* <BackgroundButtons /> */}
         </Panel>
         <Background variant={settings.backgroundType} />
         {settings.showMiniMap && (
